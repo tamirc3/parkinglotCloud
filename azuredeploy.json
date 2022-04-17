@@ -115,7 +115,7 @@
           ],
           "properties": {
             "repoUrl": "[variables('gitRepoUrl')]",
-            "branch": "master",
+            "branch": "main",
             "isManualIntegration": true
           }
         }
