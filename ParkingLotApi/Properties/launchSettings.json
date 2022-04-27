@@ -4,22 +4,21 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:24615",
-      "sslPort": 44336
+      "applicationUrl": "http://localhost:15464",
+      "sslPort": 44322
     }
   },
   "profiles": {
-    "ParkingLotService": {
+    "PLotAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7109;http://localhost:5109",
+      "applicationUrl": "https://localhost:7067;http://localhost:5067",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Production"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    }
-    ,
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
