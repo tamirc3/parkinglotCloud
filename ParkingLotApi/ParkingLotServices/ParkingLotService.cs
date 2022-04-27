@@ -7,31 +7,25 @@ namespace PLotAPI.ParkingLotServices
 {
     public class ParkingLotService
     {
-        public ParkingLotService()
-        {
-
-        }
-        
         public static void NullCheck(object argument, string name)
         {
             if (argument == null)
                 throw new ArgumentNullException(name);
         }
-        public ExitObject GetOut(int ticketId)
+        public ExitObject GetParkingCost(int ticketId)
         {
             var currentCar = new ExitObject();
-            ParkingStatus parkedCarStatusl;
 
             var singelton = ParkingLotSingleton.GetInstance();
 
-            var tryToFind = singelton.TryGet(ticketId, out parkedCarStatusl);
+            var tryToFind = singelton.TryGet(ticketId, out var parkedCarStatus);
             if (tryToFind)
             {
-                singelton.Remove(ticketId, out parkedCarStatusl);
-                currentCar.parkingLotID = parkedCarStatusl.parkingLotID;
-                currentCar.licensePlate = parkedCarStatusl.licensePlate;
+                singelton.Remove(ticketId, out parkedCarStatus);
+                currentCar.parkingLotID = parkedCarStatus.parkingLotID;
+                currentCar.licensePlate = parkedCarStatus.licensePlate;
 
-                currentCar.TotalParkTime = CalculateTime(parkedCarStatusl.StartParkingDateTime);
+                currentCar.TotalParkTime = CalculateTime(parkedCarStatus.StartParkingDateTime);
                 currentCar.TotalPrice = CalculatePrice(currentCar.TotalParkTime);
                 return currentCar;
             }

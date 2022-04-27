@@ -30,25 +30,24 @@ namespace PLotAPI.ParkingLotObjects
             return _instance;
         }
 
-        // We'll use this property to prove that our ParkingLotSingleton rWAeally works.
-        public static ConcurrentDictionary<int,ParkingStatus> Dictionary = new ConcurrentDictionary<int,ParkingStatus>();
+        private static ConcurrentDictionary<int,ParkingStatus> _parkingData = new ConcurrentDictionary<int,ParkingStatus>();
 
         public bool ValidId(int CurrentId)
         {
-            return Dictionary.ContainsKey(CurrentId);
+            return _parkingData.ContainsKey(CurrentId);
         }
 
         public bool TryGet(int ticketId, out ParkingStatus parkedCarStatusl)
         {
-            return Dictionary.TryGetValue(ticketId, out parkedCarStatusl);
+            return _parkingData.TryGetValue(ticketId, out parkedCarStatusl);
         }
         public bool Remove(int ticketId, out ParkingStatus parkedCarStatusl)
         {
-            return Dictionary.TryRemove(ticketId, out parkedCarStatusl);
+            return _parkingData.TryRemove(ticketId, out parkedCarStatusl);
         }
         public bool Add(int ticketId, ParkingStatus currentCar)
         {
-            return Dictionary.TryAdd(ticketId, currentCar);
+            return _parkingData.TryAdd(ticketId, currentCar);
         }
 
     }   
