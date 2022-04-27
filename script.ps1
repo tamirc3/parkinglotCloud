@@ -1,5 +1,4 @@
-# az login --use-device-code
-
+az login --use-device-code
 
 # set -e # exit if error
 # Create an App Service app with deployment from GitHub
@@ -9,8 +8,8 @@ $location="East US"
 $resourceGroup="tacaspi-rg8"
 $tag="deploy-github"
 $gitrepo="https://github.com/tamirc3/parkinglotCloud" 
-$appServicePlan="msdocs-app-service-plan-$randomIdentifier"
-$webapp="msdocs-web-app-$randomIdentifier"
+$appServicePlan="parkinglot-app-service-plan-$randomIdentifier"
+$webapp="parkinglot-web-app-$randomIdentifier"
 
 # Create a resource group.
 echo "Creating $resourceGroup in "$location"..."
@@ -32,6 +31,6 @@ az webapp deployment source config --name $webapp --resource-group $resourceGrou
 echo $webapp
 
 # Use curl to see the web app.
-$site="http://$webapp.azurewebsites.net/weatherforecast"
+$site="http://$webapp.azurewebsites.net/health"
 echo $site
 curl "$site" # Optionally, copy and paste the output of the previous command into a browser to see the web app
