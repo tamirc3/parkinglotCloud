@@ -1,12 +1,12 @@
-# parkinglotCloud
-ParkingLotApplication
+# ParkingLotApplication
+
 Assignment 1 for cloud computing course Computer Science MSc Idc
 
-prerequisit:
+## Prerequisite:
 1.create a free subscription in Azure (https://azure.microsoft.com/en-us/free/)
 2.download and install Azure CLI (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
-how to run:
+## how to run:
 1.run the script "deployParkingLotApp.ps1"
 The script will prompt to login to a Microsoft account,please use the account that you have a valid subscription.
 next we will create a resource group called 'parkinglot-rg' within that an app service plan and a app service.
@@ -36,12 +36,18 @@ for the entry request use the following  example body:
 for the exit request,place in the request body the ticketId as you got from the entry request, for example:43679555.
 
 
-notes:
-1.that after doing an exit the ticketID is deleted from the parking service
+## Notes:
+1.that after doing an exit the ticketID is deleted from the parking service<br>
 2.the parking lot id should be a positive int
 
+<br>
+<br>
+<br>
 
 
+
+
+## The Exercise
 Exercise 1 - Parking Lot The scenario: • Build a cloud-based system to manage a parking lot.
 
 • Camera will recognize license plate and ping cloud service
