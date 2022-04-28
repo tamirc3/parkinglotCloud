@@ -45,7 +45,10 @@ for the exit request,place in the request body the ticketId as you got from the 
 
 so to check the parking app for more then 20m needs to issue another request/use the health api  (http://parkinglot-web-app-1.azurewebsites.net/health)
 
-
+4.the script will use the same name for the app service and plan, it can be easily changed to a unique name in each deployment by 
+updating the randomIdentifier in line 8 which currently a const of "1" to:
+<br>
+$randomIdentifier= Get-Random
 
 
 
