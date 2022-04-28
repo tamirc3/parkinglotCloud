@@ -6,7 +6,7 @@ Assignment 1 for cloud computing course Computer Science MSc Idc
 1.create a free subscription in Azure (https://azure.microsoft.com/en-us/free/)
 2.download and install Azure CLI (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
-## how to run:
+## how to run (please also check the notes section at the end about 'always on' feature which is disabled in a free plan):
 1.run the script "deployParkingLotApp.ps1"
 The script will prompt to login to a Microsoft account,please use the account that you have a valid subscription.
 next we will create a resource group called 'parkinglot-rg' within that an app service plan and a app service.
@@ -39,12 +39,12 @@ for the exit request,place in the request body the ticketId as you got from the 
 ## Notes:
 1.that after doing an exit the ticketID is deleted from the parking service<br>
 2.the parking lot id should be a positive int
-**3.the free plan that we are using doesn't enable the 'Always On' feature, after 20m that the app is idle its turned off automatically**
-
+**3.the free plan that we are using doesn't enable the 'Always On' feature, after 20m that the app is idle its turned off automatically** <br>
+(https://docs.microsoft.com/en-us/azure/app-service/configure-common?tabs=portal)
 "Always On: Keeps the app loaded even when there's no traffic. When Always On is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When Always On is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded."
 
-so to check the parking app for more then 20m needs to issue another request/use the health api 
-(https://docs.microsoft.com/en-us/azure/app-service/configure-common?tabs=portal)
+so to check the parking app for more then 20m needs to issue another request/use the health api  (http://parkinglot-web-app-1.azurewebsites.net/health)
+
 
 
 
