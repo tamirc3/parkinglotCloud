@@ -2,6 +2,46 @@
 ParkingLotApplication
 Assignment 1 for cloud computing course Computer Science MSc Idc
 
+prerequisit:
+1.create a free subscription in Azure (https://azure.microsoft.com/en-us/free/)
+2.download and install Azure CLI (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
+
+how to run:
+1.run the script "deployParkingLotApp.ps1"
+The script will prompt to login to a Microsoft account,please use the account that you have a valid subscription.
+next we will create a resource group called 'parkinglot-rg' within that an app service plan and a app service.
+The last step will be to deploy our parking lot code from this repo into to the app service.
+
+once the provisiong and deployment will be completed a health check will be done by calling a health api in the app service
+(http://parkinglot-web-app-1.azurewebsites.net/health)
+which will print to the console an OK response like the below:
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : app is up and running ,current datetime:04/28/2022 17:27:46
+
+2.
+In order to test the application you can use swagger to send an entry and exit calls 
+
+http://parkinglot-web-app-1.azurewebsites.net/swagger
+
+for using other options like postman:
+for the entry request use the following  example body:
+{
+    "licensePlate" : "687212",
+    "parkingLotID" : 5
+}
+
+
+for the exit request,place in the request body the ticketId as you got from the entry request, for example:43679555.
+
+
+notes:
+1.that after doing an exit the ticketID is deleted from the parking service
+2.the parking lot id should be a positive int
+
+
+
 Exercise 1 - Parking Lot The scenario: • Build a cloud-based system to manage a parking lot.
 
 • Camera will recognize license plate and ping cloud service
